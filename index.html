@@ -30,5 +30,12 @@
     <script src="app/js/models/movie.js"></script>
     <script src="app/js/collections/movies.js"></script>
     <script src="app/js/views/movie.js"></script>
+
+    <script src="mockdata.js"></script>
+    <script>
+    $(function() {
+        MovieList.start({ movies: movies });
+    });
+    </script>
   </body>
 </html>

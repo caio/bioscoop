@@ -8,8 +8,10 @@ window.MovieList = {
 
         var movies = new MovieList.Collections.Movies(setup.movies);
 
-        movies.each(function (movie) {
-            console.log(">>> " + movie.get("title"));
+        var moviesview = new MovieList.Views.Movies({
+            collection: movies,
         });
+
+        $('.main-container').html(moviesview.render().$el);
     },
 };

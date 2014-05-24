@@ -27,6 +27,29 @@
         <ul class="media-list row movies-container"></ul>
     </script>
 
+    <script type="text/template" id="tmpl-movie">
+        <div class="thumbnail">
+            <img class="media-object" src="app/img/thumbs/<%- movieid %>.jpg">
+        </div>
+        <div class="media-heading">
+            <h3>
+            <%- title %>
+            </h3>
+        </div>
+        <div class="media-body">
+            <dl>
+            <dt>Year:<dt>
+            <dd><%- year %></dd>
+            <dt>Directors:</dt>
+            <% _.each(directors, function(director) { %> <dd><%- director %></dd> <% }); %>
+            <dt>Genres:</dt>
+            <% _.each(genres, function(genre) { %> <dd><%- genre %></dd> <% }); %>
+            </dl>
+            <a title="<%- title %> on IMDb" href="http://www.imdb.com/title/<%- imdbnumber %>/">More info</a>
+        </div>
+        <hr>
+    </script>
+
     <script src="vendor/jquery/dist/jquery.min.js"></script>
     <script src="vendor/underscore/underscore.js"></script>
     <script src="vendor/backbone/backbone.js"></script>

@@ -39,14 +39,14 @@
 }
 
 @media (min-width: 450px) {
-  .media-list {
-    text-align: left;
-  }
+  /* .media-list { */
+  /*   text-align: left; */
+  /* } */
 
-  .media .thumbnail {
-    float: left;
-    margin-right: 25px;
-  }
+  /* .media .thumbnail { */
+  /*   float: left; */
+  /*   margin-right: 25px; */
+  /* } */
 }
 
 .media:first-child {

@@ -1,6 +1,6 @@
 MovieList.Views.Movie = Backbone.View.extend({
     tagName: 'li',
-    className: 'media col-md-6 col-lg-4',
+    className: 'media col-md-3 col-lg-3 col-sm-3',
     template: _.template($('#tmpl-movie').html()),
 
     render: function() {

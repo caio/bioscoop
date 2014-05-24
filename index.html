@@ -23,7 +23,7 @@
     </div>
 
     <script type="text/template" id="tmpl-movies">
-        <h2 class="page-header text-center">List of movies</h2>
+        <h2 class="page-header text-center"></h2>
         <ul class="media-list row movies-container"></ul>
     </script>
 
@@ -37,17 +37,8 @@
             </h3>
         </div>
         <div class="media-body">
-            <dl>
-            <dt>Year:<dt>
-            <dd><%- year %></dd>
-            <dt>Directors:</dt>
-            <% _.each(directors, function(director) { %> <dd><%- director %></dd> <% }); %>
-            <dt>Genres:</dt>
-            <% _.each(genres, function(genre) { %> <dd><%- genre %></dd> <% }); %>
-            </dl>
-            <a title="<%- title %> on IMDb" href="http://www.imdb.com/title/<%- imdbnumber %>/">More info</a>
+            <a title="<%- title %> on IMDb" href="http://www.imdb.com/title/<%- imdbnumber %>/">View on IMDb</a>
         </div>
-        <hr>
     </script>
 
     <script src="vendor/jquery/dist/jquery.min.js"></script>

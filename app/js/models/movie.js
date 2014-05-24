@@ -1,6 +1,6 @@
 MovieList.Models.Movie = Backbone.Model.extend({
     defaults: {
-        movieid: null,
+        id: null,
         title: null,
         year: null,
 

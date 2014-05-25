@@ -33,6 +33,10 @@ window.MovieList = {
             var movie = movies.get(id);
 
             if (movie) {
+                var detailsview = new MovieList.Views.MovieDetails({ model: movie, });
+
+                $('.main-container').html(detailsview.render().$el);
+
             } else {
                 console.log("Couldn't find movie, redirecting back to listing");
                 router.navigate('movies', true);

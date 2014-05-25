@@ -1,6 +1,7 @@
 MovieList.Router = Backbone.Router.extend({
     routes: {
-        '': 'listMovies',
-        'movie/:id': 'viewMovieDetails',
+        '': 'home',
+        'movies': 'listMovies',
+        'movies/info/:id': 'viewMovieDetails',
     },
 });

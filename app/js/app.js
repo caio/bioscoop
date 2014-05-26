@@ -20,10 +20,19 @@ window.MovieList = {
         router.on('route:listMovies', function() {
             console.log("listMovies route");
 
-            var moviesview = new MovieList.Views.Movies({
+            var filter = new MovieList.Models.Filter({
                 collection: movies,
             });
 
+            var moviesview = new MovieList.Views.Movies({
+                collection: filter.filtered,
+            });
+
+            var searchbox = new MovieList.Views.Searchbox({
+                model: filter,
+            });
+
+            $('.searchbox').html(searchbox.render().$el);
             $('.main-container').html(moviesview.render().$el);
         });
 

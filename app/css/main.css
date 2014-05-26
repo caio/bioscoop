@@ -53,6 +53,16 @@
   margin-top: 15px;
 }
 
+.form-control {
+    padding-right: 30px;
+}
+
+.form-control + .glyphicon {
+    position: absolute;
+    right: 0;
+    padding: 8px 27px;
+}
+
 .btn-outline {
   color: #563d7c;
   background-color: transparent;

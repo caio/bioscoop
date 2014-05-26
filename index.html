@@ -12,7 +12,9 @@
     <header class="bs-header">
       <div class="container">
           <a href="#movies" title="Home"><h1>Movie List</h1></a>
-          <div class="searchbox"></div>
+          <div class="row">
+            <div class="col-md-offset-4 col-md-4 searchbox"></div>
+          </div>
       </div>
     </header>
     <div class="container">
@@ -23,9 +25,8 @@
     </div>
 
     <script type="text/template" id="tmpl-search">
-        <form>
-            <input type="text" name="titlefilter" />
-        </form>
+        <input class="form-control" type="search" name="titlefilter" />
+        <span class="glyphicon glyphicon-search"></span>
     </script>
 
     <script type="text/template" id="tmpl-movies">

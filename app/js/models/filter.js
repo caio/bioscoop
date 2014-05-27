@@ -1,16 +1,19 @@
 MovieList.Models.Filter = Backbone.Model.extend({
     defaults: {
         titlefilter: '',
+        watchedfilter: 0,
     },
 
     initialize: function(opts) {
         this.collection = opts.collection;
         this.filtered = new Backbone.Collection(opts.collection.models);
         this.on('change:titlefilter', this.filter);
+        this.on('change:watchedfilter', this.filter);
     },
 
     filter: function() {
         var title = this.get('titlefilter').trim().toLowerCase();
+        var watched = this.get('watchedfilter');
         var models;
 
         if (title === '') {
@@ -18,6 +21,13 @@ MovieList.Models.Filter = Backbone.Model.extend({
         } else {
             models = this.collection.filter(function (model) {
                 return ~ model.get('title').toLowerCase().indexOf(title);
+            });
+        }
+
+        if (watched) {
+            models = _.filter(models, function (movie) {
+                return (movie.get("playcount") === 0
+                        || ! movie.get("lastplayed"));
             });
         }
 

@@ -6,6 +6,7 @@ rsync -avRt \
     data.js \
     index.html \
     vendor/bootstrap/dist/css/bootstrap.min.css \
+    vendor/bootstrap/dist/fonts \
     vendor/jquery/dist/jquery.min.js \
     vendor/underscore/underscore.js \
     vendor/backbone/backbone.js \

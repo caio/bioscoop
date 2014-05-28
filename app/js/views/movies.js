@@ -16,6 +16,18 @@ MovieList.Views.Movies = Backbone.View.extend({
 
         this.collection.each(this.renderMovie, this);
 
+
+        // Defer triggering the lazyloading to avoid it being
+        // triggered before the dom is ready and/or the onview
+        // events get triggered
+        var self = this;
+        _(function() {
+            self.$("img.lazy").lazyload({
+                threshold: 600,
+                effect: "fadeIn",
+            });
+        }).defer();
+
         return this;
     },
 });

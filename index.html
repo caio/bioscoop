@@ -41,7 +41,7 @@
     <script type="text/template" id="tmpl-movie">
         <figure class="thumbnail">
             <a href="#movies/info/<%- id %>" class="view-movie-details" title="<%- title %>">
-                <img class="media-object" alt="<%- title %>" src="app/img/thumbs/<%- id %>.jpg">
+                <img class="lazy media-object" alt="<%- title %>" data-original="app/img/thumbs/<%- id %>.jpg">
             </a>
         </figure>
     </script>
@@ -71,6 +71,7 @@
     </script>
 
     <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
     <script src="vendor/underscore/underscore.js"></script>
     <script src="vendor/backbone/backbone.js"></script>
 

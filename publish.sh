@@ -8,6 +8,7 @@ rsync -avRt \
     vendor/bootstrap/dist/css/bootstrap.min.css \
     vendor/bootstrap/dist/fonts \
     vendor/jquery/dist/jquery.min.js \
+    vendor/jquery.lazyload/jquery.lazyload.min.js \
     vendor/underscore/underscore.js \
     vendor/backbone/backbone.js \
     ~/Dropbox/Public/movies/

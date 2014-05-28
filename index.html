@@ -39,11 +39,11 @@
     </script>
 
     <script type="text/template" id="tmpl-movie">
-        <div class="thumbnail">
+        <figure class="thumbnail">
             <a href="#movies/info/<%- id %>" class="view-movie-details" title="<%- title %>">
-            <img class="media-object" src="app/img/thumbs/<%- id %>.jpg">
+                <img class="media-object" alt="<%- title %>" src="app/img/thumbs/<%- id %>.jpg">
             </a>
-        </div>
+        </figure>
     </script>
 
     <script type="text/template" id="tmpl-moviedetails">

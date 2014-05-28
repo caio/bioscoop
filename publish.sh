@@ -1,4 +1,12 @@
 #!/bin/bash
 
 set -x
-rsync -avt app data.js index.html vendor  ~/Dropbox/Public/movies/
+rsync -avRt \
+    app \
+    data.js \
+    index.html \
+    vendor/bootstrap/dist/css/bootstrap.min.css \
+    vendor/jquery/dist/jquery.min.js \
+    vendor/underscore/underscore.js \
+    vendor/backbone/backbone.js \
+    ~/Dropbox/Public/movies/

@@ -2,7 +2,7 @@ MovieList.Views.Searchbox = Backbone.View.extend({
     template: _.template($('#tmpl-search').html()),
 
     events: {
-        'keyup input[name="titlefilter"]': _.throttle(function (ev) {
+        'keyup input[name="titlefilter"]': _.debounce(function (ev) {
             this.model.set("titlefilter", ev.currentTarget.value);
         }, 200),
         'change input[name="watchedfilter"]': function (ev) {

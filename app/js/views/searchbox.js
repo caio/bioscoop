@@ -4,7 +4,7 @@ MovieList.Views.Searchbox = Backbone.View.extend({
     events: {
         'keyup input[name="titlefilter"]': _.debounce(function (ev) {
             this.model.set("titlefilter", ev.currentTarget.value);
-        }, 200),
+        }, 300),
         'change input[name="watchedfilter"]': function (ev) {
             this.model.set("watchedfilter", ev.currentTarget.checked);
         },

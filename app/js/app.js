@@ -22,6 +22,8 @@ window.MovieList = {
 
             var filter = new MovieList.Models.Filter({
                 collection: movies,
+                titlefilter: $('input[name="titlefilter"]').val(),
+                watchedfilter: $('input[name="watchedfilter"]').prop('checked'),
             });
 
             var moviesview = new MovieList.Views.Movies({

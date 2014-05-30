@@ -1,7 +1,7 @@
 MovieList.Models.Filter = Backbone.Model.extend({
     defaults: {
         titlefilter: '',
-        watchedfilter: 0,
+        watchedfilter: false,
     },
 
     initialize: function(opts) {
@@ -9,6 +9,10 @@ MovieList.Models.Filter = Backbone.Model.extend({
         this.filtered = new Backbone.Collection(opts.collection.models);
         this.on('change:titlefilter', this.filter);
         this.on('change:watchedfilter', this.filter);
+
+        if ((opts.titlefilter && opts.titlefilter.length > 0) || opts.watchedfilter) {
+            this.filter();
+        }
     },
 
     filter: function() {

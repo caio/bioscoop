@@ -19,11 +19,16 @@ MovieList.Models.Movie = Backbone.Model.extend({
         return "app/img/thumbs/" + this.get("id") + ".jpg";
     },
 
+    imdbUrl: function() {
+        return "http://www.imdb.com/title/" + this.get("imdbnumber") + "/";
+    },
+
     toJSON: function () {
         return _.extend(
             Backbone.Model.prototype.toJSON.apply(this),
             {
                 thumbnail: this.thumbnailUrl(),
+                imdburl: this.imdbUrl(),
             }
         );
     },

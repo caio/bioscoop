@@ -20,10 +20,21 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#movies">MovieList</a>
+              <a class="navbar-brand" href="#movies">Bioscoop</a>
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Info <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="#about">About</a></li>
+                      <li class="divider"></li>
+                      <li><a href="http://caioromao.com">Author</a></li>
+                      <li><a href="http://github.com/caio/bioscoop">Source code</a></li>
+                  </ul>
+                  </li>
+              </ul>
               <div class="navbar-form navbar-right searchbox" role="search">
               </div>
           </div>
@@ -99,6 +110,7 @@
     <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="vendor/underscore/underscore.js"></script>
     <script src="vendor/backbone/backbone.js"></script>
+    <script src="vendor/showdown/compressed/showdown.js"></script>
 
     <script src="app/js/app.js"></script>
     <script src="app/js/router.js"></script>

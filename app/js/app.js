@@ -55,6 +55,22 @@ window.MovieList = {
 
         });
 
+        router.on('route:about', function() {
+            console.log("about route");
+
+            $.ajax({
+                url: "README.md",
+                datatype: "text",
+                success: function (data) {
+                    var converter = new Showdown.converter();
+                    var html = $("<div/>", {
+                        class: "row col-md-8 col-sm-8 col-xd-8 col-md-offset-2 col-xd-offset-2"
+                    }).append(converter.makeHtml(data));
+                    $('.main-container').html(html);
+                },
+            });
+        });
+
         Backbone.history.start();
     },
 };

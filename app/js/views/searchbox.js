@@ -9,6 +9,11 @@ MovieList.Views.Searchbox = Backbone.View.extend({
         'change input[name="watchedfilter"]': function (ev) {
             this.model.set("watchedfilter", ev.currentTarget.checked);
         },
+
+        // Hide the menubar when the checkbox is clicked
+        'click input[name="watchedfilter"]': function(ev) {
+            $('.navbar-toggle:visible').click();
+        },
     },
 
     modelTemplateData: function() {

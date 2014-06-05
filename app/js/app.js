@@ -64,7 +64,7 @@ window.MovieList = {
                 success: function (data) {
                     var converter = new Showdown.converter();
                     var html = $("<div/>", {
-                        class: "row col-md-8 col-sm-8 col-xd-8 col-md-offset-2 col-xd-offset-2"
+                        class: "media col-md-8 col-sm-8 col-xd-8 col-sm-offset-2 col-md-offset-2 col-xd-offset-2"
                     }).append(converter.makeHtml(data));
                     $('.main-container').html(html);
                 },

@@ -16,11 +16,9 @@ MovieList.Views.Searchbox = Backbone.View.extend({
         },
 
         // Hide the menubar when pressing <enter> in the searchbox
-        // XXX Maybe the `blur` event would be more helpful here. Try later.
-        'keypress input[name="titlefilter"]': function(ev) {
-            if (ev.which === 13) {
-                $('.navbar-toggle:visible').click();
-            }
+        // or clicking 'Done' in the keyboard
+        'blur input[name="titlefilter"]': function(ev) {
+            $('.navbar-toggle:visible').click();
         },
     },
 

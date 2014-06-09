@@ -1,9 +1,12 @@
 #!/bin/bash
 
 set -x
+set -e
+
+./download_and_prepare_library.py --pretty --username caioromao --output ~/Dropbox/Public/movies/data.js
+
 rsync -avRt \
     app \
-    data.js \
     index.html \
     README.md \
     vendor/bootstrap/dist/css/bootstrap.min.css \
@@ -15,3 +18,5 @@ rsync -avRt \
     vendor/backbone/backbone.js \
     vendor/showdown/compressed/showdown.js \
     ~/Dropbox/Public/movies/
+
+sed -ie 's/mailto:/mailto:caioromao@gmail.com/g' ~/Dropbox/Public/movies/index.html

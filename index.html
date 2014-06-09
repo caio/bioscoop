@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movie List</title>
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="app/css/main.css" rel="stylesheet">
+  </head>
+  <body>
+
+  <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bioscoop-menu-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#movies">Bioscoop</a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="bioscoop-menu-collapse">
+              <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Info <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="#about">About</a></li>
+                      <li class="divider"></li>
+                      <li><a href="http://caioromao.com">Author</a></li>
+                      <li><a href="http://github.com/caio/bioscoop">Source code</a></li>
+                  </ul>
+                  </li>
+              </ul>
+              <div class="navbar-form navbar-right searchbox" role="search">
+              </div>
+          </div>
+      </div>
+  </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 main-container">
+        </div>
+      </div>
+    </div>
+
+    <script type="text/template" id="tmpl-search">
+        <div class="form-group searchbox">
+            <input class="form-control" placeholder="Search" type="search" name="titlefilter" value="<%= titlefilter %>" />
+        </div>
+        <div class="checkbox navbar-btn">
+            <label class="navbar-link">
+                <input type="checkbox" name="watchedfilter" <%= watchedfilter %> />
+                Hide watched
+            </label>
+        </div>
+    </script>
+
+    <script type="text/template" id="tmpl-movies">
+        <ul class="media-list row movies-container"></ul>
+    </script>
+
+    <script type="text/template" id="tmpl-movie">
+        <figure class="thumbnail">
+            <a href="#movies/<%- id %>" class="view-movie-details" title="<%- title %>">
+                <img class="lazy media-object" alt="<%- title %>" data-original="<%- thumbnail %>">
+            </a>
+        </figure>
+    </script>
+
+    <script type="text/template" id="tmpl-moviedetails">
+        <div class="row text-center">
+            <div class="col-md-12 col-sm-12 col-xd-12 media">
+                <div class="thumbnail">
+                    <img class="media-object" src="<%- thumbnail %>">
+                </div>
+                <div class="media-heading">
+                    <h3>
+                    <%- title %>
+                    </h3>
+                    <hr />
+                </div>
+                <div class="text-left media-body">
+                    <dl>
+                    <dt>Year:<dt>
+                    <dd><%- year %></dd>
+                    <dt>Directors:</dt>
+                    <% _.each(directors, function(director) { %> <dd><%- director %></dd> <% }); %>
+                    <dt>Genres:</dt>
+                    <% _.each(genres, function(genre) { %> <dd><%- genre %></dd> <% }); %>
+                    <dt>Plot:</dt>
+                    <dd><%- plot %></dd>
+                    </dl>
+                    <p class="text-center">
+                        <a class="btn btn-default" title="Return to listing" href="javascript:Backbone.history.history.back();">Back</a>
+                        <a class="btn btn-default" title="<%- title %> on IMDb" href="<%- imdburl %>">IMDb</a>
+                        <a class="btn btn-success" title="Watch <%- title %>!" href="mailto:?subject=Hey, watch this next: <%- title %>&body=<%- imdburl %>/">Watch this!</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendor/underscore/underscore.js"></script>
+    <script src="vendor/backbone/backbone.js"></script>
+    <script src="vendor/showdown/compressed/showdown.js"></script>
+
+    <script src="app/js/app.js"></script>
+    <script src="app/js/router.js"></script>
+    <script src="app/js/models/movie.js"></script>
+    <script src="app/js/models/filter.js"></script>
+    <script src="app/js/collections/movies.js"></script>
+    <script src="app/js/views/movie.js"></script>
+    <script src="app/js/views/movies.js"></script>
+    <script src="app/js/views/moviedetails.js"></script>
+    <script src="app/js/views/searchbox.js"></script>
+
+    <script src="data.js"></script>
+    <script>
+    $(function() {
+        MovieList.start({ movies: movies });
+
+        // Close the navbar when clicking on items inside
+        // the "Info" dropdown
+        $('.navbar-collapse ul li ul li a').click(function(){
+            $('.navbar-toggle:visible').click();
+        });
+    });
+    </script>
+  </body>
+</html>

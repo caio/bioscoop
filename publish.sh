@@ -3,7 +3,7 @@
 set -x
 set -e
 
-./download_and_prepare_library.py --pretty --username caioromao --output ~/Dropbox/Public/movies/data.js
+./download_and_prepare_library.py --username caioromao --output ~/Dropbox/Public/movies/data.js
 
 rsync -avRt \
     app \

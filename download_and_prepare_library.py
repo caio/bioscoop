@@ -82,7 +82,7 @@ def update_library(host, username, password, processes, output, pretty, debug):
 
 def download_original_thumbnail(movie):
     global jsonclient
-    movie_id = movie['movieid']
+    movie_id = movie['imdbnumber']
 
     logger.debug("Processing movie id {}".format(movie['movieid']))
 
@@ -148,7 +148,7 @@ def write_json_data(movies, outputfile, pretty=False):
         fd.write('var movies = ' + json.dumps(output, **kwargs) + ';')
 
 def resize_thumbnail(movie):
-    movie_id = movie['movieid']
+    movie_id = movie['imdbnumber']
 
     original_thumbnail = os.path.join(THUMBNAIL_CACHE, "{}.jpg".format(movie_id))
     final_thumbnail = os.path.join(THUMBNAIL_DIR, "{}.jpg".format(movie_id))
